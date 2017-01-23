@@ -1,8 +1,12 @@
 # Changelog (ish)
 
 **v1.0 - lavventura's original start (see readme below)**
+
 **v1.1 - added time-based dynamic greetings and background.**
+
 **v1.2a - added experimental progress bar ("it looks cool")**
+
+____________________________________________________________
 
 90% pulled from lavventura's start! here's the original readme:
 
