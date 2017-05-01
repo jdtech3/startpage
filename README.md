@@ -6,7 +6,7 @@
 
 **v1.2a - added experimental progress bar ("it looks cool")**
 
-**v1.2.1 - added basic responsive CSS for background image
+**v1.2.1 - added basic responsive CSS for background image**
 
 ____________________________________________________________
 
