@@ -1,5 +1,5 @@
 // Information script
-var version = 'v1.2a';
+var version = 'v1.2.1';
 var timestamp = '20170122';
 
 var jquery_version = 'v3.0.0';

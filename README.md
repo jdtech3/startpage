@@ -6,6 +6,8 @@
 
 **v1.2a - added experimental progress bar ("it looks cool")**
 
+**v1.2.1 - added basic responsive CSS for background image
+
 ____________________________________________________________
 
 90% pulled from lavventura's start! here's the original readme:

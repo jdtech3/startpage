@@ -19,19 +19,19 @@ var n = d.getHours();
 if (n >= 21 || n <= 4){
 	message = "Goodnight";
 	bg.style.background = "url('./bg/night.jpeg') no-repeat center center fixed";
-	bg.style.backgroundSize = "100%";
+	bg.style.backgroundSize = "cover";
 } else if ( n >= 5 && n <= 11 ) {
 	message = "Good Morning";
 	bg.style.background = "url('./bg/morning.jpeg') no-repeat center center fixed";
-	bg.style.backgroundSize = "100%";
+	bg.style.backgroundSize = "cover";
 } else if ( n >= 12 && n <= 16 ) {
 	message = "Good Afternoon";
 	bg.style.background = "url('./bg/afternoon.jpeg') no-repeat center center fixed";
-	bg.style.backgroundSize = "100%";
+	bg.style.backgroundSize = "cover";
 } else if ( n >= 17 && n <= 20 ) {
 	message = "Good Evening";
 	bg.style.background = "url('./bg/evening.jpeg') no-repeat center center fixed";
-	bg.style.backgroundSize = "100%";
+	bg.style.backgroundSize = "cover";
 }
 document.getElementById('message').innerHTML = message + ", Joe";
 
@@ -39,13 +39,13 @@ document.getElementById('message').innerHTML = message + ", Joe";
 function search() {
 	console.log("Googling \"" + box.value + "\"");
 	console.log("Encoded query: \n" + encodeURIComponent(box.value));
-	document.location.href = "https://www.google.com/?gws_rd=ssl#safe=off&q=" + encodeURIComponent(box.value);
+	document.location.href = "https://www.google.ca/?gws_rd=ssl#safe=off&q=" + encodeURIComponent(box.value);
 }
 
 // if not search, nav to somewhere
 
 function nav(address) {
-	document.location.href = "https://google.com/?q=" + encodeURIComponent(box.value);
+	document.location.href = "https://google.ca/?q=" + encodeURIComponent(box.value);
 	// if the address starts with "https?|ftp ://"
 	if (/^(?:(?:https?|ftp):\/\/).*/i.test(address)) {
 		document.location.href = address;
@@ -191,11 +191,11 @@ function parseCom(com) {
 	// handle google search command
 	else if (com.startsWith("ggl")==true) {
 		if (/^ggl$/i.test(com)) {
-			nav("https://www.google.com/");
+			nav("https://www.google.ca/");
 		}
 		else if (/^ggl .{1,140}$/i.test(com)) {
 			var query = com.replace(/^ggl /i, "");
-			nav("https://www.google.com/?gws_rd=ssl&q=" + encodeURIComponent(query));
+			nav("https://www.google.ca/?gws_rd=ssl&q=" + encodeURIComponent(query));
 		}
 	}
 	// handle ig command
