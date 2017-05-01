@@ -1,3 +1,7 @@
+// Set your name and location here
+var name = "Joe";
+var weatherLocation = "Vancouver, Canada";
+
 // SEARCHBAR
 var box = document.getElementById("search box");
 
@@ -11,7 +15,7 @@ var bg = document.getElementById('background');
 var urlPattern = /^(https?:\/\/)?[^ ]+[.][^ ]+([.][^ ]+)*(\/[^ ]+)?$/i;
 
 // add on here with more handy things
-var handy = /^(google|gmail|dropbox)$/i;
+var handy = /^(google|gmail|trello|wolframalpha|piaomubnb)$/i;
 
 // Greeting and bg changing - NEW
 var d = new Date();
@@ -33,7 +37,7 @@ if (n >= 21 || n <= 4){
 	bg.style.background = "url('./bg/evening.jpeg') no-repeat center center fixed";
 	bg.style.backgroundSize = "cover";
 }
-document.getElementById('message').innerHTML = message + ", Joe";
+document.getElementById('message').innerHTML = message + ", " + name;
 
 // search for text in text box
 function search() {
@@ -424,7 +428,7 @@ function startTime() {
 // Gets weather for requested location, appends to page
 function getWeather(location) {
 	$.simpleWeather({
-		location: 'Vancouver, Canada',
+		location: weatherLocation,
 		unit: 'c',
 		success: function(weather) {
 			$('.weather').html('<a href="' + weather.link + '">' + weather.city + '</a>' + '</br>' + weather.currently + ', ' + weather.temp + '&deg;');
