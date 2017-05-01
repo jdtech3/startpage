@@ -343,6 +343,10 @@ function parseCom(com) {
 		nav("http://drive.google.com");
 	}
 
+	else if (/^calendar$/i.test(com)) {
+		nav("http://calendar.google.com");
+	}
+
 	// Media commands
 	else if (/^(twitch|ttv)$/i.test(com)) {
 		nav("http://www.twitch.tv/following");
