@@ -1,6 +1,6 @@
 // Set your name and location here
 var name = "Joe";
-var weatherLocation = "Vancouver, Canada";
+var weatherLocation = "North Vancouver, Canada";
 
 // SEARCHBAR
 var box = document.getElementById("search box");
@@ -37,7 +37,10 @@ if (n >= 21 || n <= 4){
 	bg.style.background = "url('./bg/evening.jpeg') no-repeat center center fixed";
 	bg.style.backgroundSize = "cover";
 }
-document.getElementById('message').innerHTML = message + ", " + name;
+
+function updateName() {
+	document.getElementById('message').innerHTML = message + ", " + name;
+}
 
 // search for text in text box
 function search() {
@@ -84,7 +87,7 @@ function parseCom(com) {
 	}
 
 	// handle reddit command
-	else if (com.startsWith("rdt")==true) {
+	else if (com.startsWith("rdt") === true) {
 		// if any of the custom subreddit commands are matched
 		if (/^rdt [A-Za-z]{2,2}$/i.test(com)) {
 			var subargs = com.split(" ");
@@ -101,8 +104,6 @@ function parseCom(com) {
 				case "sp":
 					nav("https://www.reddit.com/r/startpages");
 					break;
-					nav("https://www.reddit.com/");
-					break;
 			}
 		}
 		// if the subreddit command is matched
@@ -117,7 +118,7 @@ function parseCom(com) {
 		}
 		// if the search command is matched
 		else if (/^rdt -s .{1,140}$/i.test(com)) {
-			var query = com.replace(/^rdt -s /i, "");
+			query = com.replace(/^rdt -s /i, "");
 			nav("https://www.reddit.com/search?q=" + encodeURIComponent(query));
 		}
 		// if the plain old reddit command is matched
@@ -134,7 +135,7 @@ function parseCom(com) {
 		}
 	}
 	// handle twt command
-	else if (com.startsWith("twt")==true) {
+	else if (com.startsWith("twt") === true) {
 		// if matches the "twt" command
 		if (/^twt$/i.test(com)) {
 			nav("https://www.twitter.com/");
@@ -146,13 +147,13 @@ function parseCom(com) {
 		}
 		// search twitter for text
 		else if (/^twt -s .{1,140}$/i.test(com)) {
-			var query = com.replace(/^twt -s /i, "");
+			query = com.replace(/^twt -s /i, "");
 			nav("https://www.twitter.com/search?q=" + encodeURIComponent(query));
 		}
 		// search twitter for text from user
 		else if (/^twt -su @?[A-Za-z0-9_]{1,15} .{1,140}$/i.test(com)) {
 			var qparts = com.split(" ");
-			var query = com.replace(/^twt -su @?[A-Za-z0-9_]{1,15} /i, "");
+			query = com.replace(/^twt -su @?[A-Za-z0-9_]{1,15} /i, "");
 
 			nav("https://www.twitter.com/search?q=" + encodeURIComponent(query + " from:" + qparts[2]));
 		}
@@ -176,7 +177,7 @@ function parseCom(com) {
 		}
 	}
 	// handle twd command
-	else if (com.startsWith("twd")==true) {
+	else if (com.startsWith("twd") === true) {
 		if (/^twd$/i.test(com)) {
 			nav("https://tweetdeck.twitter.com/");
 		}
@@ -193,17 +194,17 @@ function parseCom(com) {
 	// SEARCH COMMANDS
 
 	// handle google search command
-	else if (com.startsWith("ggl")==true) {
+	else if (com.startsWith("ggl") === true) {
 		if (/^ggl$/i.test(com)) {
 			nav("https://www.google.ca/");
 		}
 		else if (/^ggl .{1,140}$/i.test(com)) {
-			var query = com.replace(/^ggl /i, "");
+			query = com.replace(/^ggl /i, "");
 			nav("https://www.google.ca/?gws_rd=ssl&q=" + encodeURIComponent(query));
 		}
 	}
 	// handle ig command
-	else if (com.startsWith("ig")==true) {
+	else if (com.startsWith("ig") === true) {
 		// just plain old ig
 		if (/^ig$/i.test(com)) {
 			nav("https://www.instagram.com/");
@@ -223,116 +224,116 @@ function parseCom(com) {
 		}
 	}
 	// handle aliexpress command
-	else if (com.startsWith("ali")==true) {
+	else if (com.startsWith("ali") === true) {
 		if (/^ali$/i.test(com)) {
 			nav("http://www.aliexpress.com/");
 		}
 		else if (/^ali .{1,140}$/i.test(com)) {
-			var query = com.replace(/^ali /i, "");
+			query = com.replace(/^ali /i, "");
 			nav("http://www.aliexpress.com/wholesale?SearchText=" + encodeURIComponent(query));
 		}
 	}
 	// handle allegro command
-	else if (com.startsWith("allegro")==true) {
+	else if (com.startsWith("allegro") === true) {
 		if (/^allegro$/i.test(com)) {
 			nav("http://www.allegro.pl/");
 		}
 		else if (/^allegro .{1,140}$/i.test(com)) {
-			var query = com.replace(/^allegro /i, "");
+			query = com.replace(/^allegro /i, "");
 			nav("http://www.allegro.pl/listing/listing.php?string=" + encodeURIComponent(query));
 		}
 	}
 	// handle olx command
-	else if (com.startsWith("olx")==true) {
+	else if (com.startsWith("olx") === true) {
 		if (/^olx$/i.test(com)) {
 			nav("https://www.olx.pl");
 		}
 		else if (/^olx .{1,140}$/i.test(com)) {
-			var query = com.replace(/^olx /i, "");
+			query = com.replace(/^olx /i, "");
 			nav("https://olx.pl/oferty/q-" + encodeURIComponent(query));
 		}
 	}
 	// handle imdb command
-	else if (com.startsWith("imdb")==true) {
+	else if (com.startsWith("imdb") === true) {
 		if (/^imdb$/i.test(com)) {
 			nav("https://www.imdb.com/");
 		}
 		else if (/^imdb .{1,140}$/i.test(com)) {
-			var query = com.replace(/^imdb /i, "");
+			query = com.replace(/^imdb /i, "");
 			nav("http://www.imdb.com/find?q=" + encodeURIComponent(query));
 		}
 	}
 	// handle metacritic command
-	else if (com.startsWith("meta")==true) {
+	else if (com.startsWith("meta") === true) {
 		if (/^meta$/i.test(com)) {
 			nav("http://www.metacritic.com/");
 		}
 		else if (/^meta .{1,140}$/i.test(com)) {
-			var query = com.replace(/^meta /i, "");
+			query = com.replace(/^meta /i, "");
 			nav("http://www.metacritic.com/search/all/" + encodeURIComponent(query) + "/results");
 		}
 	}
 	// handle youtube command
-	else if (com.startsWith("yt")==true) {
+	else if (com.startsWith("yt") === true) {
 		if (/^yt$/i.test(com)) {
 			nav("https://www.youtube.com/");
 		}
 		else if (/^yt .{1,140}$/i.test(com)) {
-			var query = com.replace(/^yt /i, "");
+			query = com.replace(/^yt /i, "");
 			nav("https://www.youtube.com/results?search_query=" + encodeURIComponent(query));
 		}
 	}
 	// handle github command
-	else if (com.startsWith("git")==true) {
+	else if (com.startsWith("git") === true) {
 		if (/^git$/i.test(com)) {
 			nav("https://www.github.com");
 		}
 		else if (/^git .{1,140}$/i.test(com)) {
-			var query = com.replace(/^git /i, "");
+			query = com.replace(/^git /i, "");
 			nav("https://www.github.com/search?q=" + encodeURIComponent(query));
 		}
 	}
 		// handle stackexchange command
-	else if (com.startsWith("stack")==true) {
+	else if (com.startsWith("stack") === true) {
 		if (/^stack$/i.test(com)) {
 			nav("https://www.stackexchange.com");
 		}
 		else if (/^stack .{1,140}$/i.test(com)) {
-			var query = com.replace(/^stack /i, "");
+			query = com.replace(/^stack /i, "");
 			nav("https://www.stackexchange.com/search?q=" + encodeURIComponent(query));
 		}
 	}
 	// handle tpb command
-	else if (com.startsWith("tpb")==true) {
+	else if (com.startsWith("tpb") === true) {
 		if (/^tpb$/i.test(com)) {
 			nav("https://www.thepiratebay.org");
 		}
 		else if (/^tpb .{1,140}$/i.test(com)) {
-			var query = com.replace(/^tpb /i, "");
+			query = com.replace(/^tpb /i, "");
 			nav("https://thepiratebay.org/search/" + encodeURIComponent(query));
 		}
 	}
 		// handle torrentproject command
-	else if (com.startsWith("tp")==true) {
+	else if (com.startsWith("tp") === true) {
 		if (/^tp$/i.test(com)) {
 			nav("http://torrentproject.se");
 		}
 		else if (/^tp .{1,140}$/i.test(com)) {
-			var query = com.replace(/^tp /i, "");
+			query = com.replace(/^tp /i, "");
 			nav("http://torrentproject.se/?t=" + encodeURIComponent(query));
 		}
 	}
-	else if (com.startsWith("wiki")==true) {
+	else if (com.startsWith("wiki") === true) {
 		if (/^wiki$/i.test(com)) {
 			nav("https://en.wikipedia.org");
 		}
 		else if (/^wiki .{1,140}$/i.test(com)) {
-			var query = com.replace(/^wiki /i, "");
+			query = com.replace(/^wiki /i, "");
 			nav("https://en.wikipedia.org/wiki/" + encodeURIComponent(query));
 		}
 	}
 	// handle duckduckgo / ddg command
-	else if (com.startsWith("duckduckgo") == true || com.startsWith("ddg") == true) {
+	else if (com.startsWith("duckduckgo") === true || com.startsWith("ddg") === true) {
 		nav("https://duckduckgo.com/");
 	}
 
@@ -380,12 +381,12 @@ function parseCom(com) {
 	}
 
 	// Offline command - probably useless but whatever :D
-	else if (com.startsWith('offline') == true) {
+	else if (com.startsWith('offline') === true) {
 		//p.style.color = 'black';
 		bg.style.backgroundColor = "black";
 	}
 	// Online command - resets beautiful background
-	else if (com.startsWith('online') == true) {
+	else if (com.startsWith('online') === true) {
 		bg.style.backgroundColor = "";
 	}
 
@@ -440,18 +441,21 @@ function getWeather(location) {
 }
 
  // Geolocates the user, otherwise defaulting to Vancouver
- function loadStuff() {
-if('geolocation' in navigator) {
-	/*
-	navigator.geolocation.getCurrentPosition(function(position) {
-		getWeather(position.coords.latitude + ',' + position.coords.longitude);
-	});
-	*/
-	getWeather('Vancouver, Canada')
-	// navigator.geolocation.getCurrentPosition(function(position) {
-	//   	getWeather(position.coords.latitude + ',' + position.coords.longitude);
-	// 	});
-} else { getWeather('Vancouver, Canada'); }
+function geoLocate() {
+	if('geolocation' in navigator) {
+		/*
+		navigator.geolocation.getCurrentPosition(function(position) {
+			getWeather(position.coords.latitude + ',' + position.coords.longitude);
+		});
+		*/
+		getWeather('Vancouver, Canada');
+		// navigator.geolocation.getCurrentPosition(function(position) {
+		//   	getWeather(position.coords.latitude + ',' + position.coords.longitude);
+		// 	});
+	}
+	else {
+		getWeather('Vancouver, Canada');
+	}
 }
 
 // Initializes keyboard nav
@@ -488,8 +492,9 @@ function bindMousetraps() {
 // Initializes everything on page load
 $(function() {
 	startTime();
-	loadStuff();
+	geoLocate();
 	bindMousetraps();
+	updateName();
 	// Binds click events for opening tabs and background click to close
 	$('li a.parent').click(function() {
 		$(this).parent('li').find('ul').slideToggle(150);

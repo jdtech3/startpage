@@ -8,6 +8,8 @@
 
 **v1.2.1 - added basic responsive CSS for background image**
 
+**v1.2.3 - fixed some code errors | added updateName(), function updates name on the fly**
+
 ____________________________________________________________
 
 90% pulled from lavventura's start! here's the original readme:
