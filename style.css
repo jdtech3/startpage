@@ -83,7 +83,7 @@ p {
 	padding: 15px;
 	margin: 0;
 }
-.clear { clear: both; }
+/*.clear { clear: both; }*/
 .left  { float: left; }
 .right { float: right; }
 div.right, div.left { width: 50%; }
@@ -123,4 +123,14 @@ li {
 
 #toby {
 	font-weight: bold;
+}
+
+/* Version */
+#version {
+	font-size: 12px;
+	float: right;
+}
+
+#copyright {
+	font-size: 9px;
 }
