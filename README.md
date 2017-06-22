@@ -10,9 +10,11 @@
 
 **v1.2.3 - fixed some code errors | added updateName(), function updates name on the fly**
 
+**v1.2.4 - code cleaning, removed useless stuff**
+
 ____________________________________________________________
 
-90% pulled from lavventura's start! here's the original readme:
+90% pulled from lavventura's start! here's the original readme (TODO: make commands list!):
 
     # ~start [https://lavventura.github.io/start/](https://lavventura.github.io/start/)
 

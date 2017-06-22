@@ -3,10 +3,7 @@ var name = "Joe";
 var weatherLocation = "North Vancouver, Canada";
 
 // SEARCHBAR
-var box = document.getElementById("search box");
-
-// P TAGS - not needed atm
-//var p = document.getElementsByTagName('p');
+var box = document.getElementById("search_box");
 
 // BACKGROUND
 var bg = document.getElementById('background');
@@ -18,28 +15,30 @@ var urlPattern = /^(https?:\/\/)?[^ ]+[.][^ ]+([.][^ ]+)*(\/[^ ]+)?$/i;
 var handy = /^(google|gmail|trello|wolframalpha|piaomubnb)$/i;
 
 // Greeting and bg changing - NEW
-var d = new Date();
-var n = d.getHours();
-if (n >= 21 || n <= 4){
-	message = "Goodnight";
-	bg.style.background = "url('./bg/night.jpeg') no-repeat center center fixed";
-	bg.style.backgroundSize = "cover";
-} else if ( n >= 5 && n <= 11 ) {
-	message = "Good Morning";
-	bg.style.background = "url('./bg/morning.jpeg') no-repeat center center fixed";
-	bg.style.backgroundSize = "cover";
-} else if ( n >= 12 && n <= 16 ) {
-	message = "Good Afternoon";
-	bg.style.background = "url('./bg/afternoon.jpeg') no-repeat center center fixed";
-	bg.style.backgroundSize = "cover";
-} else if ( n >= 17 && n <= 20 ) {
-	message = "Good Evening";
-	bg.style.background = "url('./bg/evening.jpeg') no-repeat center center fixed";
-	bg.style.backgroundSize = "cover";
+function updateBG() {
+	var d = new Date();
+	var n = d.getHours();
+	if (n >= 21 || n <= 4){
+		message = "Goodnight";
+		bg.style.background = "url('./bg/night.jpeg') no-repeat center center fixed";
+		bg.style.backgroundSize = "cover";
+	} else if ( n >= 5 && n <= 11 ) {
+		message = "Good Morning";
+		bg.style.background = "url('./bg/morning.jpeg') no-repeat center center fixed";
+		bg.style.backgroundSize = "cover";
+	} else if ( n >= 12 && n <= 16 ) {
+		message = "Good Afternoon";
+		bg.style.background = "url('./bg/afternoon.jpeg') no-repeat center center fixed";
+		bg.style.backgroundSize = "cover";
+	} else if ( n >= 17 && n <= 20 ) {
+		message = "Good Evening";
+		bg.style.background = "url('./bg/evening.jpeg') no-repeat center center fixed";
+		bg.style.backgroundSize = "cover";
+	}
 }
 
-function updateName() {
-	document.getElementById('message').innerHTML = message + ", " + name;
+function updateName(n) {
+	document.getElementById('message').innerHTML = message + ", " + n;
 }
 
 // search for text in text box
@@ -70,13 +69,13 @@ function searchKeyPress(e) {
 		parseCom(box.value);
 	}
 	if (e.keyCode == 9) {
-		document.getElementById("search box").blur();
+		box.blur();
 	}
 }
 
 // focus the search box on load
 window.onload = function() {
-	document.getElementById("search box").focus();
+	box.focus();
 };
 
 // parse the user's command
@@ -380,16 +379,6 @@ function parseCom(com) {
 		alert(message);
 	}
 
-	// Offline command - probably useless but whatever :D
-	else if (com.startsWith('offline') === true) {
-		//p.style.color = 'black';
-		bg.style.backgroundColor = "black";
-	}
-	// Online command - resets beautiful background
-	else if (com.startsWith('online') === true) {
-		bg.style.backgroundColor = "";
-	}
-
 	// if it doesn't match any of the commands...
 	// ... but is a valid URL
 	else if (urlPattern.test(com)) {
@@ -400,9 +389,6 @@ function parseCom(com) {
 		search();
 	}
 }
-
-// // // // // // // // // // // // // // // // // // // // // // // // // // // // // // // // // // // // // // // // // // // // // // // // // // // // // // // // // // // //
-
 
 // Finds current time and date, formats it properly
 function startTime() {
@@ -429,7 +415,7 @@ function startTime() {
 // Gets weather for requested location, appends to page
 function getWeather(location) {
 	$.simpleWeather({
-		location: weatherLocation,
+		location: location,
 		unit: 'c',
 		success: function(weather) {
 			$('.weather').html('<a href="' + weather.link + '">' + weather.city + '</a>' + '</br>' + weather.currently + ', ' + weather.temp + '&deg;');
@@ -438,24 +424,6 @@ function getWeather(location) {
 			$('.weather').html('Sorry, there has been a problem retrieving the weather information.');
 		}
 	});
-}
-
- // Geolocates the user, otherwise defaulting to Vancouver
-function geoLocate() {
-	if('geolocation' in navigator) {
-		/*
-		navigator.geolocation.getCurrentPosition(function(position) {
-			getWeather(position.coords.latitude + ',' + position.coords.longitude);
-		});
-		*/
-		getWeather('Vancouver, Canada');
-		// navigator.geolocation.getCurrentPosition(function(position) {
-		//   	getWeather(position.coords.latitude + ',' + position.coords.longitude);
-		// 	});
-	}
-	else {
-		getWeather('Vancouver, Canada');
-	}
 }
 
 // Initializes keyboard nav
@@ -487,14 +455,14 @@ function bindMousetraps() {
 	});
 }
 
-
-
 // Initializes everything on page load
 $(function() {
 	startTime();
-	geoLocate();
 	bindMousetraps();
-	updateName();
+	updateBG();
+	updateName(name);
+	getWeather(weatherLocation);
+	
 	// Binds click events for opening tabs and background click to close
 	$('li a.parent').click(function() {
 		$(this).parent('li').find('ul').slideToggle(150);
