@@ -63,10 +63,10 @@ ul.subMenu {
 a {
 	transition: all 0.15s;
 	text-decoration: none;
-	display: block;
+	/*display: block;*/
 	outline: none;
-	padding: 15px;
-	color: #555;
+	/*padding: 15px;*/
+	color: white;
 }
 a:after {
 	transition: all .15s;
@@ -83,6 +83,12 @@ p {
 	padding: 15px;
 	margin: 0;
 }
+
+/* Fix links within text */
+p a {
+	text-decoration: underline;
+}
+
 /*.clear { clear: both; }*/
 .left  { float: left; }
 .right { float: right; }

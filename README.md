@@ -12,6 +12,9 @@
 
 **v1.2.4 - code cleaning, removed useless stuff**
 
+UNRELEASED
+Code is now licensed under the MIT Public License. See [LICENSE](./LICENSE) for more details.
+Styles for links within text fixed.
 ____________________________________________________________
 
 90% pulled from lavventura's start! here's the original readme (TODO: make commands list!):
