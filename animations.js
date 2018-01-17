@@ -1,9 +1,5 @@
 NProgress.start();
 
-setTimeout(function(){
+window.onload = function() {
     NProgress.done();
-}, 1000);
-
-// $( window ).load(function() {
-//     NProgress.done();
-// });
+};
