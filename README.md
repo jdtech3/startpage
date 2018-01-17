@@ -13,6 +13,7 @@
 **v1.2.4 - code cleaning, removed useless stuff**
 
 **UNRELEASED**
+
 Code is now licensed under the MIT Public License. See [LICENSE](./LICENSE) for more details.
 
 Styles for links within text fixed.
