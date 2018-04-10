@@ -410,7 +410,7 @@ function startTime() {
 	var dateString = month + '/' + day + '/' + year;
 	document.getElementById('time').innerHTML = timeString;
 	document.getElementById('date').innerHTML = dateString;
-	var t = setTimeout(startTime, 1);
+	var t = setTimeout(startTime, 100);
 }
 
 // Gets weather for requested location, appends to page
