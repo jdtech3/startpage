@@ -19,6 +19,10 @@ Code is now licensed under the MIT Public License. See [LICENSE](./LICENSE) for 
 Styles for links within text fixed.
 
 Fixed NProgress progress bar. Now shows actual page loading status.
+
+Update copyright.
+
+Added deciseconds (one-tenths of a second) to the clock. Now shows time as: *h:m:s.ds*
 ____________________________________________________________
 
 90% pulled from lavventura's start! here's the original readme (TODO: make commands list!):
