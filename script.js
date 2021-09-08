@@ -45,7 +45,7 @@ function updateName(n) {
 function search() {
 	console.log("Googling \"" + box.value + "\"");
 	console.log("Encoded query: \n" + encodeURIComponent(box.value));
-	document.location.href = "https://www.google.ca/?gws_rd=ssl#safe=off&q=" + encodeURIComponent(box.value);
+	document.location.href = "https://www.google.ca/search?q=" + encodeURIComponent(box.value);
 }
 
 // if not search, nav to somewhere
