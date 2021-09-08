@@ -1,3 +1,5 @@
+***Deployed at: [https://jdtec.xyz/startpage](https://jdtec.xyz/startpage)***
+
 # Changelog (ish)
 
 **v1.0 - lavventura's original start (see readme below)**
