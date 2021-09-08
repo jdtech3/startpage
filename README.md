@@ -1,4 +1,4 @@
-***Deployed at: [https://jdtec.xyz/startpage](https://jdtec.xyz/startpage)***
+***Deployed at: [https://j0e.ca/startpage](https://j0e.ca/startpage)***
 
 # Changelog (ish)
 
