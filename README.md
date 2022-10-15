@@ -14,7 +14,9 @@
 
 **v1.2.4 - code cleaning, removed useless stuff**
 
-**UNRELEASED**
+**v1.2.5 - see below**
+
+**v1.2.5 changes:**
 
 Code is now licensed under the MIT Public License. See [LICENSE](./LICENSE) for more details.
 
@@ -24,7 +26,10 @@ Fixed NProgress progress bar. Now shows actual page loading status.
 
 Update copyright.
 
-Added deciseconds (one-tenths of a second) to the clock. Now shows time as: *h:m:s.ds*
+Added deciseconds (one-tenths of a second) to the clock. Now shows time as: `h:m:s.ds`
+
+Due to deprecation of jQuery SimpleWeather, switched to Open-Meteo API
+
 ____________________________________________________________
 
 90% pulled from lavventura's start! here's the original readme (TODO: make commands list!):
