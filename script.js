@@ -1,6 +1,13 @@
 // Set your name and location here
 var name = "Joe";
-var weatherLocation = "North Vancouver, Canada";
+var weatherLocation = {
+	'lat': 43.65,
+	'long': -79.38
+}
+
+// Version
+__version__ = "1.2.5";
+document.getElementById("version").innerHTML = "v" + __version__;
 
 // SEARCHBAR
 var box = document.getElementById("search_box");
@@ -414,7 +421,47 @@ function startTime() {
 }
 
 // Gets weather for requested location, appends to page
+function parseWeatherCodes(code) {
+	switch (code) {
+		case 0: return 'clear'			// not official
+		case 1: return 'mainly clear'
+		case 2: return 'partly cloudy'
+		case 3: return 'overcast'
+		case 45: return 'fog'
+		case 48: return 'frozen fog'	// not official
+		case 51: return 'light drizzle'
+		case 53: return 'moderate drizzle'
+		case 55: return 'dense drizzle'
+		case 56: return 'light freezing drizzle'
+		case 57: return 'dense freezing drizzle'
+		case 61: return 'slight rain'
+		case 63: return 'moderate rain'
+		case 65: return 'heavy rain'
+		case 66: return 'light freezing rain'
+		case 67: return 'heavy freezing rain'
+		case 71: return 'slight snow'
+		case 73: return 'moderate snow'
+		case 75: return 'heavy snow'
+		case 77: return 'snow grains'
+		case 80: return 'slight showers'
+		case 81: return 'moderate showers'
+		case 82: return 'violent showers'
+		case 85: return 'slight snow showers'
+		case 86: return 'heavy snow showers'
+		case 95: return 'thunderstorm'
+		case 96: return 'thunderstorm with slight hail'
+		case 99: return 'thunderstorm with heavy hail'
+
+		default: return 'unknown!'
+	}
+}
 function getWeather(location) {
+	var url = "https://api.open-meteo.com/v1/forecast?latitude=" + location.lat + "&longitude=" + location.long + "&current_weather=true&timezone=auto"
+	$.getJSON(url, function(data) {
+		w = data.current_weather;
+		$('.weather').html(parseWeatherCodes(w.weathercode) + '</br>' + w.temperature + '&deg;C' + ', ' + w.windspeed + ' kph');
+	});
+
 	$.simpleWeather({
 		location: location,
 		unit: 'c',
