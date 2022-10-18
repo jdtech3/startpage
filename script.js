@@ -457,17 +457,6 @@ function getWeather(location) {
 		w = data.current_weather;
 		$('.weather').html(parseWeatherCodes(w.weathercode) + '</br>' + w.temperature + '&deg;C' + ', ' + w.windspeed + ' kph');
 	});
-
-	$.simpleWeather({
-		location: location,
-		unit: 'c',
-		success: function(weather) {
-			$('.weather').html('<a href="' + weather.link + '">' + weather.city + '</a>' + '</br>' + weather.currently + ', ' + weather.temp + '&deg;');
-		},
-		error: function(error)   {
-			$('.weather').html('Sorry, there has been a problem retrieving the weather information.');
-		}
-	});
 }
 
 // Initializes keyboard nav
