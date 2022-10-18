@@ -5,10 +5,6 @@ var weatherLocation = {
 	'long': -79.38
 }
 
-// Version
-__version__ = "1.2.5";
-document.getElementById("version").innerHTML = "v" + __version__;
-
 // SEARCHBAR
 var box = document.getElementById("search_box");
 
